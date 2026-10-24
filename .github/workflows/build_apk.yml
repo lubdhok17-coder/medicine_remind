@@ -28,6 +28,10 @@ jobs:
     - name: Get Dependencies
       run: flutter pub get
 
+    - name: Create Android v2 Embedding Support
+      run: |
+        flutter create . --org com.example --project-name medi_reminder --platforms=android
+
     - name: Build APK
       run: flutter build apk --release --no-pub
 
