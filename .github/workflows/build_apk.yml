@@ -28,9 +28,10 @@ jobs:
     - name: Get Dependencies
       run: flutter pub get
 
-    - name: Create Android v2 Embedding Support
+    - name: Fix Android v2 Embedding & Update Kotlin Version
       run: |
         flutter create . --org com.example --project-name medi_reminder --platforms=android
+        sed -i 's/ext.kotlin_version = .*/ext.kotlin_version = "1.9.20"/' android/build.gradle || true
 
     - name: Build APK
       run: flutter build apk --release --no-pub
