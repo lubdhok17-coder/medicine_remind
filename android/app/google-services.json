@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "698653491344",
+    "project_id": "medi-reminder-e9ec1",
+    "storage_bucket": "medi-reminder-e9ec1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698653491344:android:240d5eb344da2c39d21815",
+        "android_client_info": {
+          "package_name": "com.example.medicine_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpzX8ax4z6hWQTBvyhwjkDGlgm-VHNe-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
