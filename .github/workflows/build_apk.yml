@@ -28,8 +28,10 @@ jobs:
     - name: Get Dependencies
       run: flutter pub get
 
-    - name: Build APK
-      run: flutter build apk --split-per-abi
+    - name: Fix Android v1 Embedding & Build APK
+      run: |
+        flutter config --enable-android-embedding
+        flutter build apk --split-per-abi
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
