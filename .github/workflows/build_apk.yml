@@ -28,9 +28,14 @@ jobs:
     - name: Get Dependencies
       run: flutter pub get
 
-    - name: Generate Android Folder & Force Kotlin Version
+    - name: Generate Android & Fix Kotlin Version
       run: |
         flutter create . --org com.example --project-name medi_reminder --platforms=android
+        # settings.gradle ফাইলের কোটলিন ভার্সন আপডেট করার জন্য
+        if [ -f "android/settings.gradle" ]; then
+          sed -i 's/kotlin-android version ".*"/kotlin-android version "1.9.20"/' android/settings.gradle
+        fi
+        # build.gradle ফাইলের কোটলিন ভার্সন আপডেট করার জন্য (যদি থাকে)
         if [ -f "android/build.gradle" ]; then
           sed -i "s/ext.kotlin_version = .*/ext.kotlin_version = '1.9.20'/" android/build.gradle
         fi
