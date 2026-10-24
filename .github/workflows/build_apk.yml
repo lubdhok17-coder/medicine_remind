@@ -28,10 +28,12 @@ jobs:
     - name: Get Dependencies
       run: flutter pub get
 
-    - name: Fix Android v2 Embedding & Update Kotlin Version
+    - name: Generate Android Folder & Force Kotlin Version
       run: |
         flutter create . --org com.example --project-name medi_reminder --platforms=android
-        sed -i 's/ext.kotlin_version = .*/ext.kotlin_version = "1.9.20"/' android/build.gradle || true
+        if [ -f "android/build.gradle" ]; then
+          sed -i "s/ext.kotlin_version = .*/ext.kotlin_version = '1.9.20'/" android/build.gradle
+        fi
 
     - name: Build APK
       run: flutter build apk --release --no-pub
